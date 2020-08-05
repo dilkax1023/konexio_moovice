@@ -1,0 +1,27 @@
+nav.navbar {
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	transition: all 0.5 ease-in;
+	height: 12vh;
+}
+
+.bg-black {
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.navbar-brand {
+	/* position: fixed; */
+	/* left: 20px; */
+	font-size: 1.5rem;
+	letter-spacing: 3px;
+}
+
+.nav-link {
+	font-size: 1.05rem;
+}
+
+.active {
+	background-color: #2a9fd6;
+}
