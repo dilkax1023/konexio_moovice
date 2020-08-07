@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -22,13 +22,13 @@ const Navbar = () => {
 		<nav
 			className={`${
 				show && 'bg-black'
-			} d-flex justify-content-betweem navbar navbar-expand-lg navbar-transparent p-4`}>
+			} d-flex justify-content-between navbar navbar-expand-lg navbar-transparent p-4`}>
 			<div>
-				<Link className='navbar-brand' to='/'>
+				<Link className='navbar-brand' to='/home'>
 					Ghaniflix
 				</Link>
 				<button
-					className='navbar-toggler'
+					className='navbar-toggler text-white'
 					type='button'
 					data-toggle='collapse'
 					data-target='#navbarColor01'
@@ -41,31 +41,37 @@ const Navbar = () => {
 
 			<div className='collapse navbar-collapse' id='navbarColor01'>
 				<ul className='navbar-nav ml-auto'>
-					<li className='nav-item active'>
-						<Link className='nav-link text-white' to='/'>
-							This week
-						</Link>
-					</li>
-					<li className='nav-item'>
-						<Link className='nav-link' to='/battle'>
-							This week battle
-						</Link>
-					</li>
-					<li className='nav-item'>
-						<Link className='nav-link' to='/popular/'>
-							Popular
-						</Link>
-					</li>
-					<li className='nav-item'>
-						<Link className='nav-link' to='/popular-battle/'>
-							Popular Battle
-						</Link>
-					</li>
-					<li className='nav-item'>
-						<Link className='nav-link' to='/my-list/'>
-							My List
-						</Link>
-					</li>
+					<NavLink
+						exact
+						activeClassName='btn btn-outline-primary'
+						className='nav-link'
+						to='/'>
+						<li className='nav-item'>This week</li>
+					</NavLink>
+					<NavLink
+						activeClassName='btn btn-outline-primary'
+						className='nav-link'
+						to='/battle'>
+						<li className='nav-item '>This week battle</li>
+					</NavLink>
+					<NavLink
+						activeClassName='btn btn-outline-primary'
+						className='nav-link'
+						to='/popular'>
+						<li className='nav-item'>Popular</li>
+					</NavLink>
+					<NavLink
+						activeClassName='btn btn-outline-primary'
+						className='nav-link'
+						to='/popular-battle'>
+						<li className='nav-item'>Popular Battle</li>
+					</NavLink>
+					<NavLink
+						activeClassName='btn btn-outline-primary'
+						className='nav-link'
+						to='/my-list'>
+						<li className='nav-item'>My List</li>
+					</NavLink>
 				</ul>
 			</div>
 		</nav>

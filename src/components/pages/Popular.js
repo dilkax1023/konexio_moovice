@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../movie/Card';
-import Row from '../layout/Row';
 
 const Popular = () => {
 	const [movies, setMovies] = useState([]);
@@ -20,17 +19,18 @@ const Popular = () => {
 				setMovies(data.results);
 			});
 	};
+	const style = {
+		height: '30rem',
+	};
+
 	const movieDisplayed = movies.map((movie) => {
-		const style = {
-			height: '30rem',
-		};
 		return (
 			<div style={style} key={movie.id} className='col-lg-3 col-md-6 mb-4'>
 				<Card movie={movie} />
 			</div>
 		);
 	});
-	return <Row movieDisplayed={movieDisplayed} />;
+	return <div className='row'>{movieDisplayed}</div>;
 };
 
 export default Popular;

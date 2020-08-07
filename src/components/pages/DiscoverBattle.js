@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './DiscoverBattle.css';
 import Card from '../movie/Card';
-import Button from '../core/Button';
-import Row from '../layout/Row';
+import { NavLink } from 'react-router-dom';
 import moment from 'moment';
+import style from './Battle.module.css';
 
 const DiscoverBattle = () => {
 	const [movies, setMovies] = useState([]);
@@ -54,14 +53,16 @@ const DiscoverBattle = () => {
 
 	const movieDisplayed = currMovies.map((movie) => {
 		return (
-			<div key={movie.id} className='custom col-md-6 text-center'>
-				<Button onClick={() => paginate(movie.id)}>
+			<div
+				key={movie.id}
+				className={`${style.custom} col-md-6 text-center mb-4`}>
+				<NavLink to='/' onClick={() => paginate(movie.id)}>
 					<Card movie={movie} />
-				</Button>
+				</NavLink>
 			</div>
 		);
 	});
-	return <Row movieDisplayed={movieDisplayed} />;
+	return <div className={style.row}>{movieDisplayed}</div>;
 };
 
 export default DiscoverBattle;

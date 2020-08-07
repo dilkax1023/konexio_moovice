@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../movie/Card';
 import moment from 'moment';
-import Row from '../layout/Row';
 
 const Discover = () => {
 	const [movies, setMovies] = useState([]);
@@ -24,14 +23,19 @@ const Discover = () => {
 				setMovies(data.results);
 			});
 	};
+
+	const gridStyle = {
+		height: '30rem',
+	};
+
 	const movieDisplayed = movies.map((movie) => {
 		return (
-			<div key={movie.id} className='col-lg-3 col-md-6'>
+			<div style={gridStyle} key={movie.id} className='col-lg-3 col-md-6 mb-4'>
 				<Card movie={movie} />
 			</div>
 		);
 	});
-	return <Row movieDisplayed={movieDisplayed} />;
+	return <div className='row'>{movieDisplayed}</div>;
 };
 
 export default Discover;

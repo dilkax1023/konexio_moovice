@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../movie/Card';
-import Button from '../core/Button';
-import Row from '../layout/Row';
+import { NavLink } from 'react-router-dom';
+import style from './Battle.module.css';
 
 const PopularBattle = () => {
 	const [movies, setMovies] = useState([]);
@@ -35,6 +35,7 @@ const PopularBattle = () => {
 		}
 		setMovieIds(idList);
 		localStorage.setItem('my-list', JSON.stringify(movieIds));
+		console.log(localStorage.getItem('my-list'));
 		setCurrPage(currPage + 1);
 	};
 
@@ -44,14 +45,17 @@ const PopularBattle = () => {
 
 	const movieDisplayed = currMovies.map((movie) => {
 		return (
-			<div key={movie.id} className='col-md-6 text-center'>
-				<Button onClick={() => paginate(movie.id)}>
+			<div
+				key={movie.id}
+				className={`${style.custom} col-md-6 text-center mb-4`}>
+				<NavLink to='/' onClick={() => paginate(movie.id)}>
 					<Card movie={movie} />
-				</Button>
+				</NavLink>
 			</div>
 		);
 	});
-	return <Row movieDisplayed={movieDisplayed} />;
+
+	return <div className={style.row}>{movieDisplayed}</div>;
 };
 
 export default PopularBattle;

@@ -1,0 +1,29 @@
+.row {
+	display: flex;
+	justify-content: center;
+}
+
+@media (min-width: 768px) {
+	.custom {
+		flex: 0 0 50%;
+		max-width: 40%;
+	}
+}
+@media (max-width: 768px) {
+	.col {
+		flex: 0 0 50%;
+		max-width: 80%;
+		margin-bottom: 1rem;
+	}
+}
+
+@media (min-width: 992px) {
+	.custom {
+		flex: 0 0 50%;
+		max-width: 35%;
+	}
+}
+
+.custom {
+	height: 34rem;
+}

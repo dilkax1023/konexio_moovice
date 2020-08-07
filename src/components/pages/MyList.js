@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../movie/Card';
-import Row from '../layout/Row';
 
 const MyList = () => {
 	const getFromLocalStorage = () => {
-		let movieIdList = localStorage.getItem('my-list');
-		movieIdList = JSON.parse(movieIdList);
-		// console.log(movieIdList);
-		return movieIdList;
+		let movieIds = localStorage.getItem('my-list');
+		if (movieIds === null) {
+			return false;
+		} else {
+			movieIds = JSON.parse(movieIds);
+			return movieIds;
+		}
 	};
 
 	const [movies, setMovies] = useState([]);
-	const [movieIds] = useState(getFromLocalStorage());
+	const [movieIds] = useState(getFromLocalStorage() || []);
 
 	useEffect(() => {
 		const fetchData = (id) => {
@@ -25,12 +27,16 @@ const MyList = () => {
 
 	const movieDisplayed = movies.map((movie) => {
 		return (
-			<div key={movie.id} className='col-lg-3 col-md-6'>
+			<div key={movie.id} className='col-lg-3 col-md-6 mb-4'>
 				<Card movie={movie} />
 			</div>
 		);
 	});
-	return <Row movieDisplayed={movieDisplayed} />;
+	return (
+		<div className='row'>
+			{getFromLocalStorage() ? movieDisplayed : 'No items selected'}
+		</div>
+	);
 };
 
 export default MyList;

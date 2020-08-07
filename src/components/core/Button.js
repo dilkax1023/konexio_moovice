@@ -2,7 +2,7 @@ import React from 'react';
 
 const Button = ({ onClick, children }) => {
 	return (
-		<button className='btn btn-dark text-center' onClick={onClick}>
+		<button className='btn btn-outline-primary text-center' onClick={onClick}>
 			{children}
 		</button>
 	);

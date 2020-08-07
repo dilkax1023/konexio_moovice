@@ -12,16 +12,21 @@ nav.navbar {
 }
 
 .navbar-brand {
-	/* position: fixed; */
-	/* left: 20px; */
 	font-size: 1.5rem;
 	letter-spacing: 3px;
 }
 
-.nav-link {
-	font-size: 1.05rem;
+.navbar-nav {
+	margin-right: 1rem;
 }
 
-.active {
-	background-color: #2a9fd6;
+.nav-item {
+	padding: 3px 2px;
+}
+
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn:active,
+.btn:focus {
+	box-shadow: none;
 }

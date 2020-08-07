@@ -7,7 +7,7 @@ const Jumbotron = () => {
 		<div className='jumbotron bg-transparent'>
 			<h1 className='display-3'>Hello, Ghaniflix!</h1>
 			<p className='lead'>
-				<Link className='btn btn-primary btn-lg px-5' to='/' role='button'>
+				<Link className='btn btn-primary btn-lg px-5 text-white' to='/'>
 					Lecture
 				</Link>
 			</p>
