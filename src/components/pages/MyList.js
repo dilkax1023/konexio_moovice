@@ -27,11 +27,15 @@ const MyList = () => {
 
 	const movieDisplayed = movies.map((movie) => {
 		return (
-			<div key={movie.id} className='col-lg-3 col-md-6 mb-4'>
+			<div
+				key={movie.id}
+				style={{ height: '30rem' }}
+				className='col-lg-3 col-md-6 mb-4'>
 				<Card movie={movie} />
 			</div>
 		);
 	});
+
 	return (
 		<div className='row'>
 			{getFromLocalStorage() ? movieDisplayed : 'No items selected'}

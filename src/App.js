@@ -9,7 +9,7 @@ import MyList from './components/pages/MyList';
 import Popular from './components/pages/Popular';
 import Navbar from './components/layout/Navbar';
 import Jumbotron from './components/layout/Jumbotron';
-
+import MovieDetails from './components/pages/MovieDetails';
 const App = () => {
 	return (
 		<Router>
@@ -18,16 +18,16 @@ const App = () => {
 					<Navbar />
 					<Jumbotron />
 				</div>
-				<Switch>
-					<div className='container'>
+				<div className='container'>
+					<Switch>
 						<Route path='/' exact component={Discover} />
-						<Route path='/home' exact component={Discover} />
 						<Route path='/battle' component={DiscoverBattle} />
 						<Route path='/popular' component={Popular} />
 						<Route path='/popular-battle' component={PopularBattle} />
-						<Route path='/my-list' component={MyList} />
-					</div>
-				</Switch>
+						<Route path='/my-list' exact component={MyList} />
+						<Route path='/my-list/:id' component={MovieDetails} />
+					</Switch>
+				</div>
 			</div>
 		</Router>
 	);

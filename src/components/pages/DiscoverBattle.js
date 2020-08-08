@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../movie/Card';
-import { NavLink } from 'react-router-dom';
 import moment from 'moment';
+import Button from '../core/Button';
 import style from './Battle.module.css';
 
 const DiscoverBattle = () => {
@@ -16,19 +16,15 @@ const DiscoverBattle = () => {
 
 	const fetchMovies = () => {
 		const today = moment().toISOString().slice(0, 10);
-		// console.log(today);
 		const nextWeek = moment().add(7, 'days').toISOString().slice(0, 10);
-		// console.log(nextWeek);
 
 		const API_KEY = '675b735d00b407cce8f30e0c25b8565d';
 		const url = `http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${today}&primary_release_date.lte=${nextWeek}&api_key=${API_KEY}`;
 		fetch(url)
 			.then((response) => {
-				// console.log(response);
 				return response.json();
 			})
 			.then((data) => {
-				// console.log(data);
 				setMovies(data.results);
 			});
 	};
@@ -50,15 +46,22 @@ const DiscoverBattle = () => {
 	const indexOfLastMovie = currPage * moviePerPage;
 	const indexOfFirstMovie = indexOfLastMovie - moviePerPage;
 	const currMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+	const styleButton = {
+		padding: 'none',
+		outline: 'none',
+		border: 'none',
+		backgroundColor: 'transparent',
+		height: '33rem',
+	};
 
 	const movieDisplayed = currMovies.map((movie) => {
 		return (
 			<div
 				key={movie.id}
 				className={`${style.custom} col-md-6 text-center mb-4`}>
-				<NavLink to='/' onClick={() => paginate(movie.id)}>
+				<Button style={styleButton} onClick={() => paginate(movie.id)}>
 					<Card movie={movie} />
-				</NavLink>
+				</Button>
 			</div>
 		);
 	});

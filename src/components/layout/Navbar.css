@@ -5,9 +5,10 @@ nav.navbar {
 	width: 100%;
 	transition: all 0.5 ease-in;
 	height: 12vh;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
-.bg-black {
+nav.navbar.bg-black {
 	background-color: rgba(0, 0, 0, 0.9);
 }
 
@@ -24,9 +25,12 @@ nav.navbar {
 	padding: 3px 2px;
 }
 
+.btn-outline-primary,
+.btn-outline-primary:active,
 .btn-outline-primary:active,
 .btn-outline-primary:focus,
 .btn:active,
 .btn:focus {
 	box-shadow: none;
+	color: white;
 }

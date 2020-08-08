@@ -24,7 +24,7 @@ const Navbar = () => {
 				show && 'bg-black'
 			} d-flex justify-content-between navbar navbar-expand-lg navbar-transparent p-4`}>
 			<div>
-				<Link className='navbar-brand' to='/home'>
+				<Link className='navbar-brand' to='/'>
 					Ghaniflix
 				</Link>
 				<button
@@ -43,31 +43,32 @@ const Navbar = () => {
 				<ul className='navbar-nav ml-auto'>
 					<NavLink
 						exact
-						activeClassName='btn btn-outline-primary'
+						activeClassName='btn btn-outline-success'
 						className='nav-link'
 						to='/'>
 						<li className='nav-item'>This week</li>
 					</NavLink>
 					<NavLink
-						activeClassName='btn btn-outline-primary'
+						activeClassName='btn btn-outline-success'
 						className='nav-link'
 						to='/battle'>
 						<li className='nav-item '>This week battle</li>
 					</NavLink>
 					<NavLink
-						activeClassName='btn btn-outline-primary'
+						activeClassName='btn btn-outline-success'
 						className='nav-link'
 						to='/popular'>
 						<li className='nav-item'>Popular</li>
 					</NavLink>
 					<NavLink
-						activeClassName='btn btn-outline-primary'
+						activeClassName='btn btn-outline-success'
 						className='nav-link'
 						to='/popular-battle'>
 						<li className='nav-item'>Popular Battle</li>
 					</NavLink>
 					<NavLink
-						activeClassName='btn btn-outline-primary'
+						exact
+						activeClassName='btn btn-outline-success'
 						className='nav-link'
 						to='/my-list'>
 						<li className='nav-item'>My List</li>

@@ -2,6 +2,7 @@ import React from 'react';
 import './Card.css';
 import placeholder from './placeholder.png';
 import Button from '../core/Button';
+import { Link } from 'react-router-dom';
 
 const Card = ({ movie, onClick }) => {
 	const src =
@@ -14,13 +15,14 @@ const Card = ({ movie, onClick }) => {
 			<img className='card-img-top' src={src} alt={movie.title} />
 			<div className='card-body text-center'>
 				<h6 className='card-title'>{movie.title}</h6>
-				<Button onClick={onClick}>more details</Button>
+				<Button onClick={onClick}>
+					<Link exact to={`/my-list/${movie.id}`}>
+						more details
+					</Link>
+				</Button>
 			</div>
 		</div>
 	);
 };
 
 export default Card;
-
-//<p className='card-text'>{movie.overview}</p>
-//

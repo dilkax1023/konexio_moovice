@@ -1,6 +1,6 @@
 .card {
 	border-radius: 1rem;
-	box-shadow: 0 0px 8px rgba(255, 255, 255, 0.2);
+	box-shadow: 0 0px 8px rgba(243, 240, 240, 0.2);
 	width: 100%;
 	margin: 0.7rem 0;
 	height: 100%;
@@ -18,5 +18,13 @@
 
 .card-body {
 	height: 22%;
-	/* overflow: auto; */
+}
+
+a {
+	text-decoration: none;
+	color: rgb(212, 187, 187);
+}
+
+a:hover {
+	color: white;
 }

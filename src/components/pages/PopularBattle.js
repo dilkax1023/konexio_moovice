@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../movie/Card';
-import { NavLink } from 'react-router-dom';
+import Button from '../core/Button';
 import style from './Battle.module.css';
 
 const PopularBattle = () => {
@@ -19,11 +19,9 @@ const PopularBattle = () => {
 	const fetchMovies = () => {
 		fetch(url)
 			.then((response) => {
-				// console.log(response);
 				return response.json();
 			})
 			.then((data) => {
-				// console.log(data);
 				setMovies(data.results);
 			});
 	};
@@ -42,15 +40,22 @@ const PopularBattle = () => {
 	const indexOfLastMovie = currPage * moviePerPage;
 	const indexOfFirstMovie = indexOfLastMovie - moviePerPage;
 	const currMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+	const styleButton = {
+		padding: 'none',
+		outline: 'none',
+		border: 'none',
+		backgroundColor: 'transparent',
+		height: '33rem',
+	};
 
 	const movieDisplayed = currMovies.map((movie) => {
 		return (
 			<div
 				key={movie.id}
 				className={`${style.custom} col-md-6 text-center mb-4`}>
-				<NavLink to='/' onClick={() => paginate(movie.id)}>
+				<Button style={styleButton} onClick={() => paginate(movie.id)}>
 					<Card movie={movie} />
-				</NavLink>
+				</Button>
 			</div>
 		);
 	});

@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Button = ({ onClick, children }) => {
+const Button = ({ onClick, children, style }) => {
 	return (
-		<button className='btn btn-outline-primary text-center' onClick={onClick}>
+		<button
+			style={style}
+			className='btn btn-outline-success text-center'
+			onClick={onClick}>
 			{children}
 		</button>
 	);

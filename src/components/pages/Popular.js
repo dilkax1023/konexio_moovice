@@ -11,11 +11,9 @@ const Popular = () => {
 			'https://api.themoviedb.org/3/discover/movie?api_key=675b735d00b407cce8f30e0c25b8565d&&page=5'
 		)
 			.then((response) => {
-				// console.log(response);
 				return response.json();
 			})
 			.then((data) => {
-				// console.log(data);
 				setMovies(data.results);
 			});
 	};
