@@ -4,30 +4,27 @@ import style from './MovieDetails.module.css';
 import placeholder from '../movie/placeholder.png';
 
 const MovieDetails = ({ match }) => {
-	console.log(match);
 	const [movie, setMovie] = useState({});
 	const baseUrl = 'https://image.tmdb.org/t/p/w500';
 	const src =
 		movie.poster_path === null ? placeholder : `${baseUrl}${movie.poster_path}`;
 
 	useEffect(() => {
+		const fetchMovieData = () => {
+			const API_KEY = '675b735d00b407cce8f30e0c25b8565d';
+			const url = `http://api.themoviedb.org/3/movie/${match.params.id}?api_key=${API_KEY}`;
+			fetch(url)
+				.then((response) => {
+					return response.json();
+				})
+				.then((data) => {
+					setMovie(data);
+				});
+		};
 		fetchMovieData();
 	}, [match.params.id]);
 
-	const fetchMovieData = () => {
-		const API_KEY = '675b735d00b407cce8f30e0c25b8565d';
-		const url = `http://api.themoviedb.org/3/movie/${match.params.id}?api_key=${API_KEY}`;
-		fetch(url)
-			.then((response) => {
-				console.log(response);
-				return response.json();
-			})
-			.then((data) => {
-				setMovie(data);
-				console.log(data);
-			});
-	};
-
+	///////
 	return (
 		<div className='container mt-4'>
 			<div className={`well ${style.Well}`}>
@@ -44,8 +41,8 @@ const MovieDetails = ({ match }) => {
 							<li className='list-group-item'>
 								<strong>Genre: </strong>
 								{Array.isArray(movie.genres)
-									? movie.genres.map((genre) => (
-											<span>{` ${genre.name}, `}</span>
+									? movie.genres.map((genre, index) => (
+											<span key={index}>{` ${genre.name}, `}</span>
 									  ))
 									: '-'}
 							</li>
@@ -64,24 +61,24 @@ const MovieDetails = ({ match }) => {
 							<li className='list-group-item'>
 								<strong>Spoken_Languages:</strong>
 								{Array.isArray(movie.spoken_languages)
-									? movie.spoken_languages.map((language) => (
-											<span>{` ${language.name}, `}</span>
+									? movie.spoken_languages.map((language, index) => (
+											<span key={index}>{` ${language.name}, `}</span>
 									  ))
 									: '-'}
 							</li>
 							<li className='list-group-item'>
 								<strong>Production_Companies:</strong>
 								{Array.isArray(movie.production_companies)
-									? movie.production_companies.map((company) => (
-											<span>{` ${company.name}, `}</span>
+									? movie.production_companies.map((company, index) => (
+											<span key={index}>{` ${company.name}, `}</span>
 									  ))
 									: '-'}
 							</li>
 							<li className='list-group-item'>
 								<strong>Production_Companies:</strong>
 								{Array.isArray(movie.production_countries)
-									? movie.production_countries.map((country) => (
-											<span>{` ${country.name}, `}</span>
+									? movie.production_countries.map((country, index) => (
+											<span key={index}>{` ${country.name}, `}</span>
 									  ))
 									: '-'}
 							</li>

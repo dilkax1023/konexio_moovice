@@ -10,9 +10,8 @@ const Discover = () => {
 	}, []);
 
 	const fetchMovieData = () => {
-		const today = moment().toISOString().slice(0, 10);
-		const nextWeek = moment().add(7, 'days').toISOString().slice(0, 10);
-
+		const today = moment().format('YYYY-MM-DD');
+		const nextWeek = moment().add(7, 'days').format('YYYY-MM-DD');
 		const API_KEY = '675b735d00b407cce8f30e0c25b8565d';
 		const url = `http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${today}&primary_release_date.lte=${nextWeek}&api_key=${API_KEY}`;
 		fetch(url)

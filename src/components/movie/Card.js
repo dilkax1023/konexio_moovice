@@ -1,10 +1,10 @@
 import React from 'react';
 import './Card.css';
 import placeholder from './placeholder.png';
-import Button from '../core/Button';
-import { Link } from 'react-router-dom';
+// import Button from '../core/Button';
+import { NavLink } from 'react-router-dom';
 
-const Card = ({ movie, onClick }) => {
+const Card = ({ movie }) => {
 	const src =
 		movie.poster_path === null
 			? placeholder
@@ -15,11 +15,11 @@ const Card = ({ movie, onClick }) => {
 			<img className='card-img-top' src={src} alt={movie.title} />
 			<div className='card-body text-center'>
 				<h6 className='card-title'>{movie.title}</h6>
-				<Button onClick={onClick}>
-					<Link exact to={`/my-list/${movie.id}`}>
-						more details
-					</Link>
-				</Button>
+				<NavLink
+					className='btn btn-outline-success'
+					to={`/my-list/${movie.id}`}>
+					more details
+				</NavLink>
 			</div>
 		</div>
 	);
